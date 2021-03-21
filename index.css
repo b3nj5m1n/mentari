@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body, .content {
+    height: 100%;
+    width: 100%;
+}
+
+.content {
+    background-color: gray;
+}
+
+.main-container {
+    background-color: black;
+    width: 90%;
+    height: 80%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 5px 5px #888888;
+}
+
+.stripe-container {
+    background-color: yellow;
+    height: 2%;
+}
+.question-latex-container {
+    background-color: red;
+    height: 39%;
+}
+.answer-latex-container {
+    background-color: green;
+    height: 39%;
+}
+.answer-plain-container {
+    background-color: blue;
+    height: 20%;
+}
+#answer-input {
+    width: 100%;
+    height: 100%;
+    background-color: #00000000;
+    border: none;
+    color: white;
+    text-align: center;
+}
+
+.button-search {
+    background-color: purple;
+    width: 5vh;
+    height: 5vh;
+    position: absolute;
+    top: 10%;
+    right: 2%;
+    border-radius: 5px;
+}
+.button-skip {
+    background-color: aqua;
+    width: 5vh;
+    height: 5vh;
+    position: absolute;
+    top: 16%;
+    right: 2%;
+    border-radius: 5px;
+}
