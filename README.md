@@ -1,0 +1,2 @@
+# mentari
+Practice mental maths
