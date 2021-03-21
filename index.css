@@ -34,22 +34,33 @@ html, body, .content {
 .question-latex-container {
     background-color: red;
     height: 39%;
+    color: white;
+    font-size: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .answer-latex-container {
     background-color: green;
     height: 39%;
+    color: white;
+    font-size: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .answer-plain-container {
     background-color: blue;
     height: 20%;
 }
-#answer-input {
+input {
     width: 100%;
     height: 100%;
     background-color: #00000000;
     border: none;
     color: white;
     text-align: center;
+    font-size: 3vw;
 }
 
 .button-search {
@@ -68,5 +79,19 @@ html, body, .content {
     position: absolute;
     top: 16%;
     right: 2%;
+    border-radius: 5px;
+}
+
+.search-box-container {
+    display: none;
+    height: 25%;
+    width: 95%;
+    position: absolute;
+    top: 10%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background-color: orange;
+    border: 2px solid #101010;
     border-radius: 5px;
 }
