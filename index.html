@@ -12,6 +12,7 @@
     </head>
     <body>
         <div class="content">
+            <div class="title"></div>
             <script src="./index.js"></script>
             <script src="./environment.js"></script>
             <script src="./environments.js"></script>
@@ -34,9 +35,11 @@
             <i class="fas fa-forward"></i>
         </div>
         <div class="search-box-container">
-            <input type="text" id="search-input" oninput="search_envs(this)" onfocusout="toggle_search()">
+            <input type="text" id="search-input" class="search" oninput="search_envs(this)" onfocusout="toggle_search()">
             <hr/>
-            <div class="search-results">
+            <div id="searching-list">
+                <ul class="search-results list">
+                </ul>
             </div>
         </div>
     </body>
