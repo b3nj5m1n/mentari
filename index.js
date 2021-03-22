@@ -14,14 +14,23 @@ window.onload = function() {
     update_title();
 
     hotkeys('up', 'search', function(event, handler){
-        select_result(((SELECTED_INDEX-1)+ENVIRONMENTS.length)%ENVIRONMENTS.length);
+        event.preventDefault();
+        change_selection(true);
     });
     hotkeys('down', 'search', function(event, handler){
-        select_result((SELECTED_INDEX+1)%ENVIRONMENTS.length)
+        event.preventDefault();
+        change_selection(false);
     });
     hotkeys('enter', 'search', function(event, handler){
         select_environment_from_search();
         document.getElementById("answer-input").focus();
+    });
+    hotkeys('ctrl+c,escape', 'search', function(event, handler){
+        toggle_search(true);
+    });
+    hotkeys('ctrl+k', 'all', function(event, handler){
+        event.preventDefault();
+        toggle_search();
     });
 };
 
@@ -31,6 +40,32 @@ hotkeys.filter = function(event){
 
 function update_title() {
     document.getElementsByClassName("title")[0].innerHTML = ENVIRONMENT.name;
+}
+
+function clear_search() {
+    document.getElementById("search-input").value = "";
+    search_envs();
+    select_result(0);
+}
+
+function change_selection(negative) {
+    elements = Array.from(document.querySelectorAll('.search-result'));
+    current_index = SELECTED_INDEX;
+    count = 0;
+    while (true) {
+        count += 1;
+        if (negative) {
+            current_index -= 1;
+        } else {
+            current_index += 1;
+        }
+        current_index = ((current_index%elements.length)+elements.length)%elements.length;
+        if (!elements[current_index].classList.contains("invisible")) {
+            select_result(current_index);
+            break;
+        }
+        if (count > elements.length) { break; }
+    }
 }
 
 function render_question() {
@@ -58,14 +93,15 @@ function check_answer(caller) {
     }
 }
 
-function toggle_search() {
+function toggle_search(disable) {
     box_container = document.getElementsByClassName("search-box-container")[0];
     search_input = document.getElementById("search-input");
-    if (box_container.style.display == "block") {
+    if (box_container.style.display == "block" || disable) {
         box_container.style.display = "none";
         hotkeys.setScope('all');
+        clear_search();
     }
-    else {
+    else if (!disable) {
         box_container.style.display = "block";
         hotkeys.setScope('search');
         search_input.focus();
@@ -79,7 +115,7 @@ function search_envs() {
     search_term = document.getElementById("search-input").value;
     document.getElementsByClassName("search-results")[0].innerHTML = "";
     ENVIRONMENTS.forEach(add_environment_to_search_box);
-    select_result(SELECTED_INDEX);
+    change_selection(true);
 }
 
 function select_result(index) {
