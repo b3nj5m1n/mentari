@@ -6,8 +6,7 @@ window.onload = function() {
         new A(),
     ]
     ENVIRONMENT = ENVIRONMENTS[0];
-    ENVIRONMENT.next();
-    render_question();
+    skip_question();
     render_answer(document.getElementById('answer-input'));
 };
 
@@ -28,12 +27,11 @@ function render_answer(caller) {
 function check_answer(caller) { 
     stripe = document.getElementsByClassName("stripe-container")[0];
     if (ENVIRONMENT.check(caller.value)) {
-        stripe.style.backgroundColor = "green";
+        stripe.style.backgroundColor = "var(--green)";
         caller.value = "";
-        ENVIRONMENT.next();
-        render_question();
+        skip_question();
     } else {
-        stripe.style.backgroundColor = "red";
+        stripe.style.backgroundColor = "var(--red)";
     }
 }
 
@@ -53,5 +51,6 @@ function search_envs() {
 }
 
 function skip_question() {
-    alert("Skipping question.");
+    ENVIRONMENT.next();
+    render_question();
 }

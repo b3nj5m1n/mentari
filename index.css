@@ -1,3 +1,13 @@
+:root {
+    --transparent: #00000000;
+    --red: #FF3C2B;
+    --green: #99D84D;
+    --background-color: #1b2e2e;
+    --foreground-color: #ffffff;
+    --background-dark-color: #142222;
+    --background-light-color: #386060;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,11 +19,11 @@ html, body, .content {
 }
 
 .content {
-    background-color: gray;
+    background-color: var(--background-dark-color);
 }
 
 .main-container {
-    background-color: black;
+    background-color: var(--background-color);
     width: 90%;
     height: 80%;
     position: absolute;
@@ -24,59 +34,62 @@ html, body, .content {
     margin: auto;
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: 5px 5px #888888;
+    /* box-shadow: 5px 5px var(--background-light-color); */
 }
 
 .stripe-container {
-    background-color: yellow;
+    background-color: var(--red);
     height: 2%;
 }
 .question-latex-container {
-    background-color: red;
+    background-color: var(--background-color);
     height: 39%;
-    color: white;
+    color: var(--foreground-color);
     font-size: 5vw;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .answer-latex-container {
-    background-color: green;
+    background-color: var(--background-color);
     height: 39%;
-    color: white;
+    color: var(--foreground-color);
     font-size: 5vw;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .answer-plain-container {
-    background-color: blue;
+    background-color: var(--background-light-color);
     height: 20%;
 }
 input {
     width: 100%;
     height: 100%;
-    background-color: #00000000;
+    background-color: var(--transparent);
     border: none;
-    color: white;
+    color: var(--foreground-color);
     text-align: center;
     font-size: 3vw;
 }
 
-.button-search {
-    background-color: purple;
+.icon-button {
+    color: var(--foreground-color);
+    background-color: var(--transparent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 5vh;
     height: 5vh;
     position: absolute;
+}
+
+.button-search {
     top: 10%;
     right: 2%;
     border-radius: 5px;
 }
 .button-skip {
-    background-color: aqua;
-    width: 5vh;
-    height: 5vh;
-    position: absolute;
     top: 16%;
     right: 2%;
     border-radius: 5px;
