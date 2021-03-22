@@ -1,16 +1,40 @@
+ENVIRONMENT = null;
+ENVIRONMENTS = []
+
 window.onload = function() {
-    test_formula = "11 * 38";
-    katex.render(test_formula, document.getElementsByClassName('question-latex-container')[0], {
-        throwOnError: false
-    });
+    ENVIRONMENTS = [
+        new A(),
+    ]
+    ENVIRONMENT = ENVIRONMENTS[0];
+    ENVIRONMENT.next();
+    render_question();
     render_answer(document.getElementById('answer-input'));
 };
+
+function render_question() {
+    latex = ENVIRONMENT.get();
+    katex.render(latex, document.getElementsByClassName('question-latex-container')[0], {
+        throwOnError: false
+    });
+}
 
 function render_answer(caller) { 
     latex = caller.value;
     katex.render(latex, document.getElementsByClassName('answer-latex-container')[0], {
         throwOnError: false
     });
+}
+
+function check_answer(caller) { 
+    stripe = document.getElementsByClassName("stripe-container")[0];
+    if (ENVIRONMENT.check(caller.value)) {
+        stripe.style.backgroundColor = "green";
+        caller.value = "";
+        ENVIRONMENT.next();
+        render_question();
+    } else {
+        stripe.style.backgroundColor = "red";
+    }
 }
 
 function toggle_search() {

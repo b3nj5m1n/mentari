@@ -11,6 +11,8 @@
     <body>
         <div class="content">
             <script src="./index.js"></script>
+            <script src="./environment.js"></script>
+            <script src="./environments.js"></script>
             <div class="main-container">
                 <div class="stripe-container">
                 </div>
@@ -19,7 +21,7 @@
                 <div class="answer-latex-container">
                 </div>
                 <div class="answer-plain-container">
-                    <input type="text" id="answer-input" oninput="render_answer(this)">
+                    <input type="text" id="answer-input" oninput="render_answer(this); check_answer(this)">
                 </div>
             </div>
         </div>
