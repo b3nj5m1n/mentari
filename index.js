@@ -7,8 +7,8 @@ window.onload = function() {
         new B(),
     ]
     ENVIRONMENT = ENVIRONMENTS[0];
+    document.getElementById('answer-input').value = "";
     skip_question();
-    render_answer(document.getElementById('answer-input'));
     search_envs();
     select_result(0);
     update_title();
@@ -32,6 +32,8 @@ window.onload = function() {
         event.preventDefault();
         toggle_search();
     });
+
+    clear_answer();
 };
 
 hotkeys.filter = function(event){
@@ -75,7 +77,8 @@ function render_question() {
     });
 }
 
-function render_answer(caller) { 
+function render_answer() { 
+    caller = document.getElementById('answer-input');
     latex = caller.value;
     katex.render(latex, document.getElementsByClassName('answer-latex-container')[0], {
         throwOnError: false
@@ -135,7 +138,8 @@ function add_environment_to_search_box(item, index) {
     indx.classList.add('search-result-index');
     indx.innerHTML = "<input value='" + index.toString() + "'/>";
     container.appendChild(indx);
-    if (item.name.search(search_term) < 0) {
+    var regex = new RegExp(search_term, "i");
+    if (item.name.search(regex) < 0) {
         container.classList.add("invisible");
     }
     search_results_container.appendChild(container);
@@ -148,7 +152,14 @@ function select_environment_from_search() {
     update_title();
 }
 
+function clear_answer() {
+    document.getElementById('answer-input').value = "";
+    render_answer();
+    document.getElementById('answer-input').focus();
+}
+
 function skip_question() {
     ENVIRONMENT.next();
     render_question();
+    clear_answer();
 }
