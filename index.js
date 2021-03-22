@@ -32,6 +32,10 @@ window.onload = function() {
         event.preventDefault();
         toggle_search();
     });
+    hotkeys('ctrl+j', 'all', function(event, handler){
+        event.preventDefault();
+        skip_question();
+    });
 
     clear_answer();
 };
@@ -150,6 +154,7 @@ function select_environment_from_search() {
     var index = selected.getElementsByClassName('search-result-index')[0].children[0].value;
     ENVIRONMENT = ENVIRONMENTS[index];
     update_title();
+    skip_question();
 }
 
 function clear_answer() {

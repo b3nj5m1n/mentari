@@ -2,6 +2,8 @@ class Environment {
     constructor(name, tags) {
         this.name = null;
         this.tags = null;
+        this.desc = null;
+        this.note = null;
         // Contains all the variable numbers
         this.numbers = []
         this.problem_latex = "";
