@@ -4,7 +4,6 @@ ENVIRONMENTS = []
 window.onload = function() {
     ENVIRONMENTS = [
         new A(),
-        new B(),
     ]
     ENVIRONMENT = ENVIRONMENTS[0];
     document.getElementById('answer-input').value = "";

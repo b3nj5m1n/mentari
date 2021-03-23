@@ -4,11 +4,15 @@ class Environment {
         this.tags = null;
         this.desc = null;
         this.note = null;
+        this.time_start = null;
+        this.time_end = null;
+        this.solved = null;
         // Contains all the variable numbers
         this.numbers = []
-        this.problem_latex = "";
     }
-    // Generate the next random question
+    // Store to local storage,
+    // Generate the next random question,
+    // Record time of starting
     next() {
         throw new Error("Method 'next()' must be implemented.");
     }
@@ -20,9 +24,14 @@ class Environment {
     get() {
         throw new Error("Method 'get()' must be implemented.");
     }
-    // Returns latex for solution
+    // Returns latex for solution,
+    // if correct records time of solving
     solve() {
         throw new Error("Method 'solve()' must be implemented.");
+    }
+    // Stores all the abvailable information in local storage
+    store() {
+        throw new Error("Method 'store()' must be implemented.");
     }
     getRandomInt(min, max) {
         min = Math.ceil(min);
