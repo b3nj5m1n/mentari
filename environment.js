@@ -1,12 +1,13 @@
 class Environment {
-    constructor(name, tags) {
-        this.name = null;
-        this.tags = null;
-        this.desc = null;
-        this.note = null;
-        this.time_start = null;
+    constructor(name, tags, desc, note) {
+        this.name = name;
+        this.tags = tags;
+        this.desc = desc;
+        this.note = note;
+        this.ready = false;
+        this.time_start = new Date().getTime()
         this.time_end = null;
-        this.solved = null;
+        this.solved = false;
         // Contains all the variable numbers
         this.numbers = []
     }
@@ -14,11 +15,22 @@ class Environment {
     // Generate the next random question,
     // Record time of starting
     next() {
-        throw new Error("Method 'next()' must be implemented.");
+        if (this.ready) { this.store(); }
+        this.generate();
+        this.time_start = new Date().getTime();
+        this.ready = true;
     }
     // Check if the answer is correct
     check(answer) {
-        throw new Error("Method 'check()' must be implemented.");
+        this.solved = (answer.toLowerCase() == this.solve().toLowerCase());
+        if (this.solved) {
+            this.time_end = new Date().getTime();
+        }
+        return this.solved;
+    }
+    // Generates the numbers[] array
+    generate() {
+        throw new Error("Method 'generate()' must be implemented.");
     }
     // Returns the latex for the current question
     get() {
@@ -31,7 +43,11 @@ class Environment {
     }
     // Stores all the abvailable information in local storage
     store() {
-        throw new Error("Method 'store()' must be implemented.");
+        var n = window.localStorage.length;
+        while (window.localStorage.getItem(n.toString()) !== null) {
+            n += 1;
+        }
+        window.localStorage.setItem(n.toString(), JSON.stringify(this));
     }
     getRandomInt(min, max) {
         min = Math.ceil(min);

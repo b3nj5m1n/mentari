@@ -1,27 +1,24 @@
-class A extends Environment {
+
+/*
+ * Chapter 0
+*/
+
+class C0_M01 extends Environment {
     constructor() {
-        super();
-        this.name = "Multiply any 2 digit number by 11";
-        this.tags = ["multiplication", "2-digit", "11"];
-        this.desc = "You are given a random 2 digit number which you have to multiply with 11.";
-        this.note = "Chapter 0";
-        this.time_start = new Date().getTime()
-        this.time_end = null;
-        this.solved = false;
-        // 0 = 2 digit number to multiply by 11
-        this.numbers = [];
+        super("Multiply any 2 digit number by 11",
+            [
+                "chapter_0",
+                "method_01",
+                "multiplication",
+                "2_digit",
+                "11"
+            ],
+            "",
+            "Chapter 0, Method 1"
+        );
     }
-    next() {
-        this.store();
+    generate() {
         this.numbers[0] = this.getRandomInt(10, 99);
-        this.time_start = new Date().getTime();
-    }
-    check(answer) {
-        this.solved = (answer == this.solve());
-        if (this.solved) {
-            this.time_end = new Date().getTime();
-        }
-        return this.solved;
     }
     get() {
         return `11 * ${this.numbers[0]}`;
@@ -29,11 +26,127 @@ class A extends Environment {
     solve() {
         return `${11 * this.numbers[0]}`;
     }
-    store() {
-        var n = window.localStorage.length;
-        while (window.localStorage.getItem(n.toString()) !== null) {
-            n += 1;
-        }
-        window.localStorage.setItem(n.toString(), JSON.stringify(this));
+}
+class C0_M02 extends Environment {
+    constructor() {
+        super("Multiply any 3 digit number by 11",
+            [
+                "chapter_0",
+                "method_02",
+                "multiplication",
+                "3_digit",
+                "11"
+            ],
+            "",
+            "Chapter 0, Method 2"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(100, 999);
+    }
+    get() {
+        return `11 * ${this.numbers[0]}`;
+    }
+    solve() {
+        return `${11 * this.numbers[0]}`;
+    }
+}
+class C0_M03 extends Environment {
+    constructor() {
+        super("Square a two digit number ending in 2",
+            [
+                "chapter_0",
+                "method_03",
+                "multiplication",
+                "squaring",
+                "2_digit",
+                "suffix_5"
+            ],
+            "",
+            "Chapter 0, Method 3"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(1, 9)*10+5;
+    }
+    get() {
+        return `${this.numbers[0]}^2`;
+    }
+    solve() {
+        return `${Math.pow(this.numbers[0], 2)}`;
+    }
+}
+class C0_M04 extends Environment {
+    constructor() {
+        super("Multiply two 2 digit numbers with the same first digit and end digits summing to 10",
+            [
+                "chapter_0",
+                "method_04",
+                "multiplication",
+                "2_digit",
+                "prefix_same",
+                "suffix_complementary"
+            ],
+            "You are given two 2 digit numbers, the first digits of these numbers are the same, the last digit of the first number + the first digit of the second number = 10",
+            "Chapter 0, Method 4"
+        );
+    }
+    generate() {
+        var prefix = this.getRandomInt(1, 9);
+        var suffix_1 = this.getRandomInt(1, 9);
+        var suffix_2 = 10 - suffix_1;
+        this.numbers[0] = prefix*10+suffix_1;
+        this.numbers[1] = prefix*10+suffix_2;
+    }
+    get() {
+        return `${this.numbers[0]} * ${this.numbers[1]}`;
+    }
+    solve() {
+        return `${this.numbers[0]*this.numbers[1]}`;
+    }
+}
+class C0_M05 extends Environment {
+    constructor() {
+        super("Calculate 15 % of arbitrary number",
+            [
+                "chapter_0",
+                "method_05",
+                "percentages",
+                "15",
+            ],
+            "",
+            "Chapter 0, Method 5"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(1, 999);
+    }
+    get() {
+        return `15 \\% \\; \\textrm{of} \\; ${this.numbers[0]}`;
+    }
+    solve() {
+        return `${this.numbers[0]*(15/100)}`;
+    }
+}
+class C0_M06 extends Environment {
+    constructor() {
+        super("Calculate weekday of a newyears in the 21. century",
+            [
+                "chapter_0",
+                "method_06",
+                "weekdays",
+            ],
+            "",
+            "Chapter 0, Method 6"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(2000, 2099);
+    }
+    get() {
+        return `\\textrm{Weekday of newyears ${this.numbers[0]}}`;
+    }
+    solve() {
+        return `${new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(new Date('01 Jan ' + this.numbers[0] + ' 00:00:00 GMT'))}`;
     }
 }

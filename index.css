@@ -175,3 +175,19 @@ hr {
     text-shadow: 3px 3px 0 #FF00B4;
     text-transform: uppercase;
 }
+
+.horizontal-list {
+    width: 100%;
+    text-align: center;
+}
+
+.horizontal-list li {
+    display: inline;
+    list-style: none;
+}
+.horizontal-list li:after {
+    content: " \00b7";
+}
+.horizontal-list li:last-child:after {
+    content: none;
+}

@@ -3,7 +3,12 @@ ENVIRONMENTS = []
 
 window.onload = function() {
     ENVIRONMENTS = [
-        new A(),
+        new C0_M01(),
+        new C0_M02(),
+        new C0_M03(),
+        new C0_M04(),
+        new C0_M05(),
+        new C0_M06(),
     ]
     ENVIRONMENT = ENVIRONMENTS[0];
     document.getElementById('answer-input').value = "";
@@ -134,9 +139,16 @@ function select_result(index) {
 function add_environment_to_search_box(item, index) {
     var search_results_container = document.getElementsByClassName("search-results")[0];
     var container = document.createElement("li");
-    var result = document.createTextNode(item.name);
     container.classList.add('search-result');
-    container.appendChild(result);
+    var attrib_container = document.createElement("ul");
+    attrib_container.classList.add('horizontal-list');
+    var result = document.createElement("li");
+    var note = document.createElement("li");
+    result.appendChild(document.createTextNode(item.name));
+    note.appendChild(document.createTextNode(item.note));
+    attrib_container.appendChild(result);
+    attrib_container.appendChild(note);
+    container.appendChild(attrib_container);
     var indx = document.createElement("div");
     indx.classList.add('search-result-index');
     indx.innerHTML = "<input value='" + index.toString() + "'/>";
