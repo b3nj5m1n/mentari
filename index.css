@@ -159,7 +159,7 @@ hr {
 
 @font-face {
     font-family: "league_gothic";
-    src: url(./vendor/league-gothic.regular.ttf);
+    src: url(./fonts/league-gothic.regular.ttf);
 }
 
 .title {
