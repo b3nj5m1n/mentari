@@ -107,6 +107,11 @@ input:focus {
     right: 2%;
     border-radius: 5px;
 }
+.button-solve {
+    top: 22%;
+    right: 2%;
+    border-radius: 5px;
+}
 
 .search-box-container {
     display: none;

@@ -178,4 +178,12 @@ function skip_question() {
     ENVIRONMENT.next();
     render_question();
     clear_answer();
+    document.getElementById('answer-input').readOnly = false;
+}
+
+function solve_question() {
+    document.getElementById('answer-input').value = ENVIRONMENT.solve();
+    render_answer();
+    document.getElementById('answer-input').readOnly = true;
+    document.getElementById('answer-input').focus();
 }
