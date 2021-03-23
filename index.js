@@ -41,11 +41,21 @@ window.onload = function() {
         skip_question();
     });
 
+    var clipboard = new ClipboardJS('.button-export', {
+        text: function(trigger) {
+            return JSON.stringify(localStorage);
+        }
+    });
+
+    clipboard.on('success', function(e) {
+        alertify.success('Local Storage copied to clipboard.');
+    });
+
     clear_answer();
 };
 
 hotkeys.filter = function(event){
-  return true;
+    return true;
 }
 
 function update_title() {
@@ -186,4 +196,22 @@ function solve_question() {
     render_answer();
     document.getElementById('answer-input').readOnly = true;
     document.getElementById('answer-input').focus();
+}
+
+function stats_import() {
+    alertify.prompt( 'Please enter export.',
+        'Please enter the json string you obtained by exporting', '',
+        function(evt, value) {
+            try {
+                var data = JSON.parse(value);
+                Object.keys(data).forEach(function (k) {
+                    localStorage.setItem(k, data[k]);
+                });
+                alertify.success('Successfullly imported.');
+            }
+            catch (e) {
+                alertify.error('Import failed.');
+            }
+        }, function() { alertify.error('Cancel') });
+
 }

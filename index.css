@@ -112,6 +112,16 @@ input:focus {
     right: 2%;
     border-radius: 5px;
 }
+.button-export {
+    top: 28%;
+    right: 2%;
+    border-radius: 5px;
+}
+.button-import {
+    top: 34%;
+    right: 2%;
+    border-radius: 5px;
+}
 
 .search-box-container {
     display: none;
