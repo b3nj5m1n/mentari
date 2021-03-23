@@ -150,3 +150,104 @@ class C0_M06 extends Environment {
         return `${new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(new Date('01 Jan ' + this.numbers[0] + ' 00:00:00 GMT'))}`;
     }
 }
+
+/*
+ * Chapter 1
+*/
+
+class C1_M01 extends Environment {
+    constructor() {
+        super("Addition of 2-digit numbers",
+            [
+                "chapter_1",
+                "method_01",
+                "addition",
+                "2_digit",
+            ],
+            "",
+            "Chapter 1, Method 1"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(10, 99);
+        this.numbers[1] = this.getRandomInt(10, 99);
+    }
+    get() {
+        return `${this.numbers[0]} + ${this.numbers[1]}`;
+    }
+    solve() {
+        return `${this.numbers[0] + this.numbers[1]}`;
+    }
+}
+class C1_M02 extends Environment {
+    constructor() {
+        super("Addition of 3-digit numbers",
+            [
+                "chapter_1",
+                "method_02",
+                "addition",
+                "3_digit",
+            ],
+            "",
+            "Chapter 1, Method 2"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(100, 999);
+        this.numbers[1] = this.getRandomInt(100, 999);
+    }
+    get() {
+        return `${this.numbers[0]} + ${this.numbers[1]}`;
+    }
+    solve() {
+        return `${this.numbers[0] + this.numbers[1]}`;
+    }
+}
+class C1_M03 extends Environment {
+    constructor() {
+        super("Subraction of 2-digit numbers",
+            [
+                "chapter_1",
+                "method_03",
+                "subraction",
+                "2_digit",
+            ],
+            "",
+            "Chapter 1, Method 3"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(10, 99);
+        this.numbers[1] = this.getRandomInt(10, 99);
+    }
+    get() {
+        return `${this.numbers[0]} - ${this.numbers[1]}`;
+    }
+    solve() {
+        return `${this.numbers[0] - this.numbers[1]}`;
+    }
+}
+class C1_M04 extends Environment {
+    constructor() {
+        super("Subraction of 3-digit numbers",
+            [
+                "chapter_1",
+                "method_04",
+                "subraction",
+                "3_digit",
+            ],
+            "",
+            "Chapter 1, Method 4"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(100, 999);
+        this.numbers[1] = this.getRandomInt(100, 999);
+    }
+    get() {
+        return `${this.numbers[0]} - ${this.numbers[1]}`;
+    }
+    solve() {
+        return `${this.numbers[0] - this.numbers[1]}`;
+    }
+}

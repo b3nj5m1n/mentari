@@ -9,6 +9,10 @@ window.onload = function() {
         new C0_M04(),
         new C0_M05(),
         new C0_M06(),
+        new C1_M01(),
+        new C1_M02(),
+        new C1_M03(),
+        new C1_M04(),
     ]
     ENVIRONMENT = ENVIRONMENTS[0];
     document.getElementById('answer-input').value = "";
