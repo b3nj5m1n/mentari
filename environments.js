@@ -1,5 +1,79 @@
 
 /*
+ * Drills
+*/
+
+class D01 extends Environment {
+    constructor() {
+        super("Addition of 1-digit numbers",
+            [
+                "drill_01",
+                "addition",
+                "1-digit"
+            ],
+            "",
+            "Drill 1"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(1, 9);
+        this.numbers[1] = this.getRandomInt(1, 9);
+    }
+    get() {
+        return `${this.numbers[0]} + ${this.numbers[1]}`;
+    }
+    solve() {
+        return `${this.numbers[0] + this.numbers[1]}`;
+    }
+}
+class D02 extends Environment {
+    constructor() {
+        super("Subraction of 1-digit numbers",
+            [
+                "drill_02",
+                "subraction",
+                "1-digit"
+            ],
+            "",
+            "Drill 2"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(1, 9);
+        this.numbers[1] = this.getRandomInt(1, this.numbers[0]);
+    }
+    get() {
+        return `${this.numbers[0]} - ${this.numbers[1]}`;
+    }
+    solve() {
+        return `${this.numbers[0] - this.numbers[1]}`;
+    }
+}
+class D03 extends Environment {
+    constructor() {
+        super("Multiplication of 1-digit numbers",
+            [
+                "drill_03",
+                "multiplication",
+                "1-digit"
+            ],
+            "",
+            "Drill 3"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(1, 9);
+        this.numbers[1] = this.getRandomInt(1, 9);
+    }
+    get() {
+        return `${this.numbers[0]} * ${this.numbers[1]}`;
+    }
+    solve() {
+        return `${this.numbers[0] * this.numbers[1]}`;
+    }
+}
+
+/*
  * Chapter 0
 */
 

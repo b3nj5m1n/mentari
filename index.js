@@ -3,6 +3,9 @@ ENVIRONMENTS = []
 
 window.onload = function() {
     ENVIRONMENTS = [
+        new D01(),
+        new D02(),
+        new D03(),
         new C0_M01(),
         new C0_M02(),
         new C0_M03(),
