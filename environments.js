@@ -267,7 +267,7 @@ class C2_M01 extends Environment {
                 "1_digit",
             ],
             "",
-            "Chapter 1, Method 1"
+            "Chapter 2, Method 1"
         );
     }
     generate() {
@@ -292,7 +292,7 @@ class C2_M02 extends Environment {
                 "1_digit",
             ],
             "",
-            "Chapter 1, Method 2"
+            "Chapter 2, Method 2"
         );
     }
     generate() {
@@ -317,7 +317,7 @@ class C2_M03 extends Environment {
                 "2_digit",
             ],
             "",
-            "Chapter 1, Method 3"
+            "Chapter 2, Method 3"
         );
     }
     generate() {
@@ -328,5 +328,82 @@ class C2_M03 extends Environment {
     }
     solve() {
         return `${Math.pow(this.numbers[0], 2)}`;
+    }
+}
+
+/*
+ * Chapter 3
+*/
+
+class C3_M01 extends Environment {
+    constructor() {
+        super("Multiplication of 2 2-digit numbers",
+            [
+                "chapter_3",
+                "method_01",
+                "multiplication",
+                "2_digit",
+            ],
+            "",
+            "Chapter 3, Method 1"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(10, 99);
+        this.numbers[1] = this.getRandomInt(10, 99);
+    }
+    get() {
+        return `${this.numbers[0]} * ${this.numbers[1]}`;
+    }
+    solve() {
+        return `${this.numbers[0] * this.numbers[1]}`;
+    }
+}
+class C3_M02 extends Environment {
+    constructor() {
+        super("Square any 3-digit number",
+            [
+                "chapter_3",
+                "method_02",
+                "multiplication",
+                "squaring",
+                "3_digit",
+            ],
+            "",
+            "Chapter 3, Method 2"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(100, 999);
+    }
+    get() {
+        return `${this.numbers[0]}^2`;
+    }
+    solve() {
+        return `${Math.pow(this.numbers[0], 2)}`;
+    }
+}
+class C3_M03 extends Environment {
+    constructor() {
+        super("Cube any 2-digit number",
+            [
+                "chapter_3",
+                "method_03",
+                "multiplication",
+                "cubing",
+                "2_digit",
+            ],
+            "",
+            "Chapter 3, Method 3"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(10, 99);
+    }
+    get() {
+        return `${this.numbers[0]}^3`;
+    }
+    solve() {
+        return `${Math.pow(this.numbers[0], 3)}`;
     }
 }
