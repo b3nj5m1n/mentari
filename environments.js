@@ -407,3 +407,224 @@ class C3_M03 extends Environment {
         return `${Math.pow(this.numbers[0], 3)}`;
     }
 }
+
+/*
+ * Chapter 4
+*/
+
+class C4_M01 extends Environment {
+    constructor() {
+        super("Division of a 3-digit number by a 1-digit number",
+            [
+                "chapter_4",
+                "method_01",
+                "division",
+                "3_digit",
+                "1_digit",
+            ],
+            "",
+            "Chapter 4, Method 1"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(100, 999);
+        this.numbers[1] = this.getRandomInt(1, 9);
+    }
+    get() {
+        return `${this.numbers[0]} \\div ${this.numbers[1]}`;
+    }
+    solve() {
+        return `${(this.numbers[0] / this.numbers[1]).toFixed(2)}`;
+    }
+}
+class C4_M02 extends Environment {
+    constructor() {
+        super("Division of a 4-digit number by a 1-digit number",
+            [
+                "chapter_4",
+                "method_02",
+                "division",
+                "3_digit",
+                "1_digit",
+            ],
+            "",
+            "Chapter 4, Method 2"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(1000, 9999);
+        this.numbers[1] = this.getRandomInt(1, 9);
+    }
+    get() {
+        return `${this.numbers[0]} \\div ${this.numbers[1]}`;
+    }
+    solve() {
+        return `${(this.numbers[0] / this.numbers[1]).toFixed(2)}`;
+    }
+}
+class C4_M03 extends Environment {
+    constructor() {
+        super("Division of a 3-digit number by a 2-digit number",
+            [
+                "chapter_4",
+                "method_03",
+                "division",
+                "3_digit",
+                "2_digit",
+            ],
+            "",
+            "Chapter 4, Method 3"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(100, 999);
+        this.numbers[1] = this.getRandomInt(10, 99);
+    }
+    get() {
+        return `${this.numbers[0]} \\div ${this.numbers[1]}`;
+    }
+    solve() {
+        return `${(this.numbers[0] / this.numbers[1]).toFixed(2)}`;
+    }
+}
+class C4_M04 extends Environment {
+    constructor() {
+        super("Division of a 4-digit number by a 2-digit number",
+            [
+                "chapter_4",
+                "method_04",
+                "division",
+                "4_digit",
+                "2_digit",
+            ],
+            "",
+            "Chapter 4, Method 4"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(1000, 9999);
+        this.numbers[1] = this.getRandomInt(10, 99);
+    }
+    get() {
+        return `${this.numbers[0]} \\div ${this.numbers[1]}`;
+    }
+    solve() {
+        return `${(this.numbers[0] / this.numbers[1]).toFixed(2)}`;
+    }
+}
+class C4_M05 extends Environment {
+    constructor() {
+        super("Multiplication of fractions",
+            [
+                "chapter_4",
+                "method_05",
+                "multiplication",
+                "fractions",
+            ],
+            "",
+            "Chapter 4, Method 5"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(1, 11);
+        this.numbers[1] = this.getRandomInt(1, 11);
+        this.numbers[2] = this.getRandomInt(1, 11);
+        this.numbers[3] = this.getRandomInt(1, 11);
+    }
+    get() {
+        return `\\frac{${this.numbers[0]}}{${this.numbers[1]}} * \\frac{${this.numbers[2]}}{${this.numbers[3]}}`;
+    }
+    solve() {
+        var x = new Fraction(`${this.numbers[0]}/${this.numbers[1]}`);
+        var y = new Fraction(`${this.numbers[2]}/${this.numbers[3]}`);
+        const RES = x.mul(y);
+        return `\\frac{${RES.n}}{${RES.d}}`;
+    }
+}
+class C4_M06 extends Environment {
+    constructor() {
+        super("Division of fractions",
+            [
+                "chapter_4",
+                "method_06",
+                "division",
+                "fractions",
+            ],
+            "",
+            "Chapter 4, Method 6"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(1, 11);
+        this.numbers[1] = this.getRandomInt(1, 11);
+        this.numbers[2] = this.getRandomInt(1, 11);
+        this.numbers[3] = this.getRandomInt(1, 11);
+    }
+    get() {
+        return `\\frac{${this.numbers[0]}}{${this.numbers[1]}} \\div \\frac{${this.numbers[2]}}{${this.numbers[3]}}`;
+    }
+    solve() {
+        var x = new Fraction(`${this.numbers[0]}/${this.numbers[1]}`);
+        var y = new Fraction(`${this.numbers[2]}/${this.numbers[3]}`);
+        const RES = x.div(y);
+        return `\\frac{${RES.n}}{${RES.d}}`;
+    }
+}
+class C4_M07 extends Environment {
+    constructor() {
+        super("Addition of fractions",
+            [
+                "chapter_4",
+                "method_07",
+                "addition",
+                "fractions",
+            ],
+            "",
+            "Chapter 4, Method 7"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(1, 11);
+        this.numbers[1] = this.getRandomInt(1, 11);
+        this.numbers[2] = this.getRandomInt(1, 11);
+        this.numbers[3] = this.getRandomInt(1, 11);
+    }
+    get() {
+        return `\\frac{${this.numbers[0]}}{${this.numbers[1]}} + \\frac{${this.numbers[2]}}{${this.numbers[3]}}`;
+    }
+    solve() {
+        var x = new Fraction(`${this.numbers[0]}/${this.numbers[1]}`);
+        var y = new Fraction(`${this.numbers[2]}/${this.numbers[3]}`);
+        const RES = x.add(y);
+        return `\\frac{${RES.n}}{${RES.d}}`;
+    }
+}
+class C4_M08 extends Environment {
+    constructor() {
+        super("Subraction of fractions",
+            [
+                "chapter_4",
+                "method_07",
+                "subtraction",
+                "fractions",
+            ],
+            "",
+            "Chapter 4, Method 8"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(1, 11);
+        this.numbers[1] = this.getRandomInt(1, 11);
+        this.numbers[2] = this.getRandomInt(1, 11);
+        this.numbers[3] = this.getRandomInt(1, 11);
+    }
+    get() {
+        return `\\frac{${this.numbers[0]}}{${this.numbers[1]}} - \\frac{${this.numbers[2]}}{${this.numbers[3]}}`;
+    }
+    solve() {
+        var x = new Fraction(`${this.numbers[0]}/${this.numbers[1]}`);
+        var y = new Fraction(`${this.numbers[2]}/${this.numbers[3]}`);
+        const RES = x.sub(y).toFraction(true);
+        return `${((RES.s < 0) ? '-' : '')}\\frac{${RES.n}}{${RES.d}}`;
+    }
+}

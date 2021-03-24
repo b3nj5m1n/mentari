@@ -19,6 +19,14 @@ window.onload = function() {
         new C3_M01(),
         new C3_M02(),
         new C3_M03(),
+        new C4_M01(),
+        new C4_M02(),
+        new C4_M03(),
+        new C4_M04(),
+        new C4_M05(),
+        new C4_M06(),
+        new C4_M07(),
+        new C4_M08(),
     ]
     ENVIRONMENT = ENVIRONMENTS[0];
     document.getElementById('answer-input').value = "";
@@ -49,6 +57,10 @@ window.onload = function() {
     hotkeys('ctrl+j', 'all', function(event, handler){
         event.preventDefault();
         skip_question();
+    });
+    hotkeys('ctrl+l', 'all', function(event, handler){
+        event.preventDefault();
+        solve_question();
     });
 
     var clipboard = new ClipboardJS('.button-export', {
