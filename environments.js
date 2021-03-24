@@ -251,3 +251,82 @@ class C1_M04 extends Environment {
         return `${this.numbers[0] - this.numbers[1]}`;
     }
 }
+
+/*
+ * Chapter 2
+*/
+
+class C2_M01 extends Environment {
+    constructor() {
+        super("Multiplication of a 2-digit number with a 1-digit number",
+            [
+                "chapter_2",
+                "method_01",
+                "multiplication",
+                "2_digit",
+                "1_digit",
+            ],
+            "",
+            "Chapter 1, Method 1"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(1, 9);
+        this.numbers[1] = this.getRandomInt(10, 99);
+    }
+    get() {
+        return `${this.numbers[0]} * ${this.numbers[1]}`;
+    }
+    solve() {
+        return `${this.numbers[0] * this.numbers[1]}`;
+    }
+}
+class C2_M02 extends Environment {
+    constructor() {
+        super("Multiplication of a 3-digit number with a 1-digit number",
+            [
+                "chapter_2",
+                "method_02",
+                "multiplication",
+                "3_digit",
+                "1_digit",
+            ],
+            "",
+            "Chapter 1, Method 2"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(1, 9);
+        this.numbers[1] = this.getRandomInt(100, 999);
+    }
+    get() {
+        return `${this.numbers[0]} * ${this.numbers[1]}`;
+    }
+    solve() {
+        return `${this.numbers[0] * this.numbers[1]}`;
+    }
+}
+class C2_M03 extends Environment {
+    constructor() {
+        super("Square any 2-digit number",
+            [
+                "chapter_2",
+                "method_03",
+                "multiplication",
+                "squaring",
+                "2_digit",
+            ],
+            "",
+            "Chapter 1, Method 3"
+        );
+    }
+    generate() {
+        this.numbers[0] = this.getRandomInt(10, 99);
+    }
+    get() {
+        return `${this.numbers[0]}^2`;
+    }
+    solve() {
+        return `${Math.pow(this.numbers[0], 2)}`;
+    }
+}

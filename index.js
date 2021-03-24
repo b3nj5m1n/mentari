@@ -13,6 +13,9 @@ window.onload = function() {
         new C1_M02(),
         new C1_M03(),
         new C1_M04(),
+        new C2_M01(),
+        new C2_M02(),
+        new C2_M03(),
     ]
     ENVIRONMENT = ENVIRONMENTS[0];
     document.getElementById('answer-input').value = "";
