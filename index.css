@@ -136,7 +136,9 @@ input:focus {
     background-color: var(--search-box-background);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 5px;
-    overflow: visible;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--background-dark-color) var(--search-box-background);
 }
 
 .search-result {
