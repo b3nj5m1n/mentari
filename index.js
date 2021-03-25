@@ -68,7 +68,7 @@ window.onload = function() {
 
     var clipboard = new ClipboardJS('.button-export', {
         text: function(trigger) {
-            return JSON.stringify(localStorage);
+            return JSON.stringify(localStorage, null, 2);
         }
     });
 
