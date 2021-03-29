@@ -12,8 +12,8 @@
         <script defer src="./vendor/katex.min.js"></script>
         <script src="./vendor/alertify.min.js"></script>
         <script src="./vendor/clipboard.min.js"></script>
-        <script src="./vendor/fraction.min.js"></script>
         <script src="./vendor/hotkeys.min.js"></script>
+        <script src="./vendor/math.js"></script>
     </head>
     <body>
         <div class="content">
@@ -29,7 +29,7 @@
                 <div class="answer-latex-container">
                 </div>
                 <div class="answer-plain-container">
-                    <input type="text" id="answer-input" oninput="render_answer(); check_answer(this)">
+                    <input type="text" inputmode="numeric" id="answer-input" oninput="render_answer(); check_answer(this)">
                 </div>
             </div>
         </div>

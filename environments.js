@@ -609,8 +609,8 @@ class C4_M05 extends Environment {
         return `\\frac{${this.numbers[0]}}{${this.numbers[1]}} * \\frac{${this.numbers[2]}}{${this.numbers[3]}}`;
     }
     solve() {
-        var x = new Fraction(`${this.numbers[0]}/${this.numbers[1]}`);
-        var y = new Fraction(`${this.numbers[2]}/${this.numbers[3]}`);
+        var x = new math.fraction(`${this.numbers[0]}/${this.numbers[1]}`);
+        var y = new math.fraction(`${this.numbers[2]}/${this.numbers[3]}`);
         const RES = x.mul(y);
         return `\\frac{${RES.n}}{${RES.d}}`;
     }
@@ -638,8 +638,8 @@ class C4_M06 extends Environment {
         return `\\frac{${this.numbers[0]}}{${this.numbers[1]}} \\div \\frac{${this.numbers[2]}}{${this.numbers[3]}}`;
     }
     solve() {
-        var x = new Fraction(`${this.numbers[0]}/${this.numbers[1]}`);
-        var y = new Fraction(`${this.numbers[2]}/${this.numbers[3]}`);
+        var x = new math.fraction(`${this.numbers[0]}/${this.numbers[1]}`);
+        var y = new math.fraction(`${this.numbers[2]}/${this.numbers[3]}`);
         const RES = x.div(y);
         return `\\frac{${RES.n}}{${RES.d}}`;
     }
@@ -667,8 +667,8 @@ class C4_M07 extends Environment {
         return `\\frac{${this.numbers[0]}}{${this.numbers[1]}} + \\frac{${this.numbers[2]}}{${this.numbers[3]}}`;
     }
     solve() {
-        var x = new Fraction(`${this.numbers[0]}/${this.numbers[1]}`);
-        var y = new Fraction(`${this.numbers[2]}/${this.numbers[3]}`);
+        var x = new math.fraction(`${this.numbers[0]}/${this.numbers[1]}`);
+        var y = new math.fraction(`${this.numbers[2]}/${this.numbers[3]}`);
         const RES = x.add(y);
         return `\\frac{${RES.n}}{${RES.d}}`;
     }
@@ -696,9 +696,9 @@ class C4_M08 extends Environment {
         return `\\frac{${this.numbers[0]}}{${this.numbers[1]}} - \\frac{${this.numbers[2]}}{${this.numbers[3]}}`;
     }
     solve() {
-        var x = new Fraction(`${this.numbers[0]}/${this.numbers[1]}`);
-        var y = new Fraction(`${this.numbers[2]}/${this.numbers[3]}`);
-        const RES = x.sub(y).toFraction(true);
+        var x = new math.fraction(`${this.numbers[0]}/${this.numbers[1]}`);
+        var y = new math.fraction(`${this.numbers[2]}/${this.numbers[3]}`);
+        const RES = x.sub(y).tomath.fraction(true);
         return `${((RES.s < 0) ? '-' : '')}\\frac{${RES.n}}{${RES.d}}`;
     }
 }

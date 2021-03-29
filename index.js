@@ -120,9 +120,15 @@ function render_question() {
     });
 }
 
+function get_answer_latex() {
+    var caller = document.getElementById('answer-input');
+    var latex = math.parse(caller.value).toTex();
+    if (latex == "undefined") { latex = ""; }
+    return latex;
+}
+
 function render_answer() { 
-    caller = document.getElementById('answer-input');
-    latex = caller.value;
+    var latex = get_answer_latex();
     katex.render(latex, document.getElementsByClassName('answer-latex-container')[0], {
         throwOnError: false
     });
@@ -130,7 +136,7 @@ function render_answer() {
 
 function check_answer(caller) { 
     stripe = document.getElementsByClassName("stripe-container")[0];
-    if (ENVIRONMENT.check(caller.value)) {
+    if (ENVIRONMENT.check(get_answer_latex())) {
         stripe.style.backgroundColor = "var(--green)";
         caller.value = "";
         skip_question();
