@@ -43,11 +43,11 @@ class Environment {
     }
     // Stores all the abvailable information in local storage
     store() {
-        var n = window.localStorage.length;
+        /* var n = window.localStorage.length;
         while (window.localStorage.getItem(n.toString()) !== null) {
             n += 1;
-        }
-        window.localStorage.setItem(n.toString(), JSON.stringify(this));
+        } */
+        window.localStorage.setItem(this.time_start.toString(), JSON.stringify(this));
     }
     getRandomInt(min, max) {
         min = Math.ceil(min);
