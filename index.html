@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mentari</title>
         <meta name="description" content="Practice mental maths" />
         <link rel="manifest" href="manifest.json">
@@ -33,20 +34,22 @@
                 </div>
             </div>
         </div>
-        <div class="button-search icon-button" onclick="toggle_search()">
-            <i>SEARCH</i>
-        </div>
-        <div class="button-skip icon-button" onclick="skip_question()">
-            <i>SKIP</i>
-        </div>
-        <div class="button-solve icon-button" onclick="solve_question()">
-            <i>SOLVE</i>
-        </div>
-        <div class="button-export icon-button">
-            <i>EXPORT</i>
-        </div>
-        <div class="button-import icon-button" onclick="stats_import()">
-            <i>IMPORT</i>
+        <div class="button-container">
+            <div class="button-search icon-button" onclick="toggle_search()">
+                <i>SEARCH</i>
+            </div>
+            <div class="button-skip icon-button" onclick="skip_question()">
+                <i>SKIP</i>
+            </div>
+            <div class="button-solve icon-button" onclick="solve_question()">
+                <i>SOLVE</i>
+            </div>
+            <div class="button-export icon-button">
+                <i>EXPORT</i>
+            </div>
+            <div class="button-import icon-button" onclick="stats_import()">
+                <i>IMPORT</i>
+            </div>
         </div>
         <div class="search-box-container">
             <input type="text" id="search-input" class="search" oninput="search_envs(this)" onfocusout="toggle_search(true)" placeholder="Search for an environment">

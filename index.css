@@ -36,8 +36,6 @@ html, body, .content {
     margin: auto;
     border-radius: 5px;
     overflow: hidden;
-    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
-    /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; */
     box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
 }
 
@@ -45,6 +43,7 @@ html, body, .content {
     background-color: var(--red);
     height: 3vh;
 }
+
 .question-latex-container {
     background-color: var(--background-color);
     height: 37%;
@@ -86,41 +85,31 @@ input:focus {
     outline: none;
 }
 
-.icon-button {
-    color: var(--foreground-color);
-    background-color: var(--transparent);
-    display: flex;
+.button-container {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    width: 4%;
+    right: 0;
+    margin-top: 20vh;
+    margin-bottom: 20vh;
     justify-content: center;
     align-items: center;
-    width: 5vh;
-    height: 5vh;
-    position: absolute;
 }
 
-.button-search {
-    top: 10%;
-    right: 2%;
+.icon-button {
+    color: var(--foreground-color);
+    background-color: var(--background-dark-color);
+    width: fit-content;
+    height: fit-content;
     border-radius: 5px;
+    margin: 7px;
+    padding: 2px;
+    transition: filter 0.2s;
+    transition-timing-function: linear;
 }
-.button-skip {
-    top: 16%;
-    right: 2%;
-    border-radius: 5px;
-}
-.button-solve {
-    top: 22%;
-    right: 2%;
-    border-radius: 5px;
-}
-.button-export {
-    top: 28%;
-    right: 2%;
-    border-radius: 5px;
-}
-.button-import {
-    top: 34%;
-    right: 2%;
-    border-radius: 5px;
+.icon-button:hover {
+    filter: contrast(200%);
 }
 
 .search-box-container {
@@ -207,4 +196,61 @@ hr {
 }
 .horizontal-list li:last-child:after {
     content: none;
+}
+
+@media only screen and (max-width: 1900px) {
+    .main-container {
+        width: 80%;
+    }
+    .button-container {
+        width: 100px;
+        margin-top: 20vh;
+        margin-bottom: 20vh;
+        justify-content: center;
+        align-items: center;
+    }
+    .icon-button {
+        text-align: left;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .title {
+        font-size: 5vh;
+    }
+    .main-container {
+        width: 100%;
+        height: 90%;
+        box-shadow: none;
+    }
+    .stripe-container {
+        height: 1vh;
+    }
+    .question-latex-container {
+        font-size: 13vw;
+    }
+    .answer-latex-container {
+        font-size: 13vw;
+    }
+    input {
+        font-size: 8vw;
+    }
+    .button-container {
+        bottom: 0;
+        left: 0;
+        right: auto;
+        top: auto;
+        width: 100%;
+        display: flex;
+        position: fixed;
+        margin: 0;
+        justify-content: space-between;
+        background-color: var(--background-color);
+        border-top: 2px solid var(--background-dark-color);
+        padding-top: 5px;
+    }
+    .icon-button {
+        margin: 0;
+        padding: 6px;
+    }
 }
